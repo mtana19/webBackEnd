@@ -1,0 +1,128 @@
+<%- include("partials/header") %>
+
+	<!-- Hero section -->
+	<section class="hero-section set-bg" data-setbg="img/bg.jpg">
+		<div class="container h-100">
+			<div class="hero-content text-white">
+				<div class="row">
+					<div class="col-lg-6 pr-0">
+						<h2>Discovering the beyond</h2>
+						<p>Let's go beyond ultra because our universe is full of surprises. 
+						The search begins with a click of a button. Let's make a voyage
+						into space.</p>
+						<a href="#movies" class="site-btn">Reserve Now</a>
+					</div>
+				</div>
+				<div class="hero-rocket">
+					<img src="./img/rocket.png" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- Features section -->
+	<section class="features-section spad" id="movies">
+		<div class="container">
+			<div class="section-title">
+				<img src="./img/section-title-icon.png" alt="#">
+				<p>The best out there</p>
+				<h2>See our collection of movies</h2>
+			</div>
+			<div class="row">
+				<% movies.forEach(function(movie){ %>
+				<div class="col-lg-4 col-md-6 feature-item">
+					<a href="/movie/<%= movie._id %>">
+						<div class="thumbnail text-center">
+							<img src="<%= movie.image %>" alt="<%= movie.title %>">
+							<div class="overlay">
+								<div class="caption">
+									"Movie: <%= movie.title %>"
+									<br><br>
+									"Rating: <%= movie.rating %>"
+									<br><br>
+									"Duration: <%= movie.runtime %> mins"
+									<br><br>
+									"Synopsis: <%= movie.synopsis %>"
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<% }); %>
+			</div>
+		</div>
+	</section>
+	<!-- Features section end -->
+
+
+	<!-- Skills & testimonials section -->
+	<section class="skills-and-testimonials-section spad">
+		<div class="container">
+			<h2>What's being watched right now</h1>
+			<div class="row">
+				<!-- Skills -->
+				<div class="col-lg-6">
+					<div class="single-progress-item">
+						<p>Avengers: Endgame</p>
+						<div class="progress-bar-style" data-progress="95"  data-bgcolor="#eb2b63"></div>
+					</div>
+					<div class="single-progress-item">
+						<p>Mulan</p>
+						<div class="progress-bar-style" data-progress="92"  data-bgcolor="#eb2bae"></div>
+					</div>
+					<div class="single-progress-item">
+						<p>The SpongeBob Movie: Sponge on the Run</p>
+						<div class="progress-bar-style" data-progress="90"  data-bgcolor="#d22beb"></div>
+					</div>
+					<div class="single-progress-item">
+						<p>Free Guy</p>
+						<div class="progress-bar-style" data-progress="82"  data-bgcolor="#972beb"></div>
+					</div>
+					<div class="single-progress-item">
+						<p>Sonic the Hedgehog</p>
+						<div class="progress-bar-style" data-progress="80"  data-bgcolor="#732beb"></div>
+					</div>
+				</div>
+				<!-- Testimonials -->
+				<div class="col-lg-6">
+					<div class="testimonials-slider owl-carousel">
+						<div class="testimonial-item">
+							<div class="ti-content">
+								<p>The ambiance is very comfortable and their air conditioner is well-maintained. You can relax while watching with your friends or with your special someone. It is also very convenient because it it near why I live.</p>
+							</div>
+							<div class="ti-author-pic set-bg" data-setbg="img/profile/profile4.png"></div>
+							<div class="ti-author">
+								<h6>Jane Doe</h6>
+								<span>Loyal Customer</span>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="ti-content">
+								<p>Nice place and the employees are very professional. The place is huge so it does not feel very crowded. Very good service and the place is well-maintained.</p>
+							</div>
+							<div class="ti-author-pic set-bg" data-setbg="img/profile/profile2.png"></div>
+							<div class="ti-author">
+								<h6>Michael Smith</h6>
+								<span>New Customer</span>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<div class="ti-content">
+								<p>I always come here to watch the latest movies. The audio and preview quality is great. You can bring popcorn, chips, and drinks inside. The whole cinema is clean, as well as the bathroom. Seats are also very comfortable. The AC is okay, not too cold and not too hot. There's a security guard also checking out the place and the people while the movie is going to make sure that everyone is safe while enjoying the movie. Overall, it's a great place to watch your movies.</p>
+							</div>
+							<div class="ti-author-pic set-bg" data-setbg="img/profile/profile9.png"></div>
+							<div class="ti-author">
+								<h6>Carl Johnson</h6>
+								<span>Long Time Customer</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Skills & testimonials section end -->
+
+<%- include("partials/footer") %>

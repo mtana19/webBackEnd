@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+/*!
+ * custom.css 
+ * Version - 1.0
+ */
+
+ol {
+	border-radius: 50%;
+	height: auto;
+	max-width: 20%;
+	margin: auto;
+	padding: 5px 0;
+}
+
+.thumbnail {
+	position: relative;
+}
+
+.thumbnail img {
+	max-height: 530px;
+	width: 100%;
+}
+
+.overlay {
+	position: absolute;
+	top: 10%;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	transition: .2s ease;
+}
+
+.feature-item:hover .overlay {
+	height: 100%;
+}
+
+.feature-item:hover img {
+	opacity: 0.2;
+}
+
+.caption {
+	white-space: wrap;
+	text-align: left;
+	color: black;
+	font-size: 14px;
+	position: absolute;
+	overflow: hidden;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.btn-group {
+	float: right;
+	margin-left: 30px;
+}
+
+.nav-btn {
+	float: right;
+	background: #eb2b63;
+	color: #fff;
+	margin-right: 70px;
+	margin-top: 15px;
+	font-size: 14px;
+	padding: 12px 19px;
+	line-height: 1;
+	border-radius: 14px;
+}

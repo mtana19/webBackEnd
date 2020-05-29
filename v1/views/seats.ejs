@@ -1,0 +1,146 @@
+<%- include("partials/header") %>
+<link rel="stylesheet" href="css/seat.css"/>
+
+  <!-- Page Top section -->
+  <section class="page-top-section-2 set-bg" data-setbg="img/page-top-bg.jpg">
+    <div class="container">
+      <h2>Seats</h2>
+      <div class="site-breadcrumb">
+        <a href="/">Home</a>/<a href="/reservation">Reservation</a>/<span>Seats</span>
+      </div>
+    </div>
+  </section>
+  <!-- Page Top section end -->
+
+
+  <!-- About section -->
+  <section class="about-section spad">
+  <!-- <section class="about-section spad pt-0"> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <h3>Seats</h3><br>
+          
+          <div class="col-md-4">
+          <table>
+            <tr>
+              <td style="padding-left: 5px;">   
+                <img class = "imgsize" src="./img/seat.png">
+              </td>
+              <td>
+                <h6>Available</h6>
+              <td>  
+            </tr>
+            <tr>
+              <td style="padding-left: 5px;">
+                <img class = "imgsize" src="./img/reservedseat.png"style="align-items: center;">
+              </td>
+              <td>
+                <h6>Reserved</h6>
+              <td>  
+            </tr>
+            <tr>
+              <td style="padding-left: 5px;">
+                <img class = "imgsize" src="./img/selectedseat2.png">
+              </td>
+              <td>
+                <h6>Selected</h6>
+              <td>  
+            </tr>
+          </table>
+          </div>
+
+          <form class="contact-form" style="padding-top: 20px;">
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="row-seat" scope="col"></th>
+                        <th class="text-center" scope="col">1</th>
+                        <th class="text-center" scope="col">2</th>
+                        <th class="text-center" scope="col">3</th>
+                        <th class="text-center" scope="col">4</th>
+                        <th class="text-center" scope="col">5</th>
+                        <th class="text-center" scope="col">6</th>
+                        <th class="text-center" scope="col">7</th>
+                        <th class="text-center" scope="col">8</th>
+                      </tr>
+                    </thead>
+                    <tbody id="test">
+                      <% var i; %>
+                      <% var j; %>
+                      <% var text = ["A","B","C","D","E","F","G","H"]; %>
+
+                      <% for(i = 0; i < text.length; i++){ %>
+                        <tr><th scope="row"><%= text[i] %></th>
+                        <% for(j = 0; j < 8; j++){ %>
+                          <td class="seat"><input type="checkbox" id="myCheckbox<%= text[i] %><%= (j+1) %>" value="<%= text[i] %><%= (j+1) %>"></td>
+                        <% } %>
+                        </tr>
+                      <% } %>
+                    </tbody>
+                </table>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <div class="col-lg-4 container" id="currentReservation"> 
+          <div class=" details-body highlight">
+            <form action="/checkout/<%= showMovie._id %>/<%= showSchedule._id %>" method="POST">
+              <h3>Reservation Details</h3>
+              <h5>Movie Title</h5>
+              <input type="text" name="title" value="<%= showMovie.title %>" disabled>
+              <h5>Date</h5>
+              <input type="text" name="date" value="<%= showSchedule.schedule.toDateString() %>" disabled>
+              <h5>Cinema</h5><input type="text" name="date" value="<%= showSchedule.cinema %>  - <%= showSchedule.schedule.toLocaleTimeString() %>" disabled>
+              <h5>Seats</h5>
+              <textarea name="seats" id="movieSeats" readonly>
+              </textarea>
+              <h5>Total Cost: </h5>
+              <input type="text" name="price" id="price" value="<%= showSchedule.price %>" style="display: none;" readonly>
+              <input type="text" name="totalAmount" id="total" value="" readonly>
+              <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
+            </form>
+        </div>
+
+              <!-- Modal -->
+          <div class="modal fade bd-example-modal-sm" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Are you sure?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About section end -->
+
+  <% var seatsTaken= []; %>
+  <% reservations.map(res => {return res.seats;}).forEach(arr => {seatsTaken = seatsTaken.concat(arr)}); %>
+  <% console.log(seatsTaken); %>
+  <script src="/js/test.js"></script>
+<%- include("partials/footer") %>
+
+<script type="text/javascript">
+  var r = <%- JSON.stringify(seatsTaken) %>;
+  console.log("HAHAHA");
+  r.forEach( seat => {
+    $("#myCheckbox"+seat).prop("disabled", true);
+  });
+</script>

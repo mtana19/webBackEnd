@@ -1,0 +1,101 @@
+<%- include("partials/header") %>
+
+  <!-- Page Top section -->
+  <section class="page-top-section-2 set-bg" data-setbg="img/page-top-bg.jpg">
+    <div class="container">
+      <h2>Checkout</h2>
+      <div class="site-breadcrumb">
+        <a href="/">Home</a>/<a href="/reservation">Reservation</a>/<a href="/reservation/seats">Seats</a>/<span>Checkout</span>
+      </div>
+    </div>
+  </section>
+  <!-- Page Top section end -->
+
+
+  <!-- About section -->
+  <section class="about-section spad">
+    <div class="container">
+
+      <div class="row" id="success">
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 container"  style="margin-bottom: 20px;">
+          <div class="details-body">
+            <div class="text-left">
+              <h3>Checkout</h3>
+              <h4>Movie</h4>
+              <h5><%= showMovie.title %></h5>
+              <hr>
+                <div class="text" id="movieCheckout">
+                </div>
+              <br>
+              <h4>Cinema Details</h4>
+              <h5>Cinema <%= showSchedule.cinema %><br><%- showSchedule.schedule.toDateString() %> - <%-showSchedule.schedule.toLocaleTimeString()%></h5>
+              <hr>
+                <div class="text" id="movieCinemaDetails">
+                </div>
+              <br>
+              <h4>Seats</h4>
+              <h5><%= seats %></h5>
+              <hr>
+                <div class="text" id="movieSeatsDetails">
+                </div>
+              <br>
+              <h4>Cost</h4>
+              <h5><%= total %></h5>
+              <hr>
+                <div class="text" id="movieCostDetails">
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-4 container">
+          <div class="details-body highlight">
+          <h3>Order Summary</h3>
+          <form action="/reserveticket/<%= schedID %>" method="POST">
+            <h4>Movie:</h4>
+            <input type="text" name="movie" value="<%= showMovie.title %>" readonly>
+            <h5>Schedule:</h5>
+            <input type="text" name="date" value="<%- showSchedule.schedule.toDateString() %>" readonly>
+            <h5>Cinema:</h5>
+            <input type="text" name="cinema" value="<%= showSchedule.cinema %>" readonly>
+            <h5>Time:</h5>
+            <input type="text" name="time" value="<%- showSchedule.schedule.toLocaleTimeString() %>" readonly>
+            <h5>Seats:</h5>
+            <input type="text" name="seats" value="<%= seats %>" readonly>
+            <h5 id = "movieSeats"></h5>
+            <h5>Price:</h5>
+            <input type="text" name="total" value="<%= total %>" readonly>
+            <br><br>
+            <button type="submit" class="btn btn-primary">Confirm Order</button>
+          </form>
+          
+            
+              <!-- Modal -->
+            <div class="modal fade bd-example-modal-sm" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Are you sure?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <a href="/" type="button" class="btn btn-primary" id="add-btn">Confirm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About section end -->
+
+<%- include("partials/footer") %>

@@ -1,0 +1,56 @@
+<%- include("partials/header") %>
+
+	<!-- Page Top section -->
+	<section class="page-top-section-2 set-bg" data-setbg="img/page-top-bg.jpg">
+		<div class="container">
+			<h2>Reservation</h2>
+			<div class="site-breadcrumb">
+				<a href="/">Home</a> / <span>Reservation</span>
+			</div>
+		</div>
+	</section>
+	<!-- Page Top section end -->
+
+	<!-- About section -->
+	<section class="about-section spad">
+		<div class="container">
+
+                <p><%= showMovie.title %></p>
+                <p><%- showMovie.genres.toString() %></p>
+                <p><%= showMovie.rating %></p>
+                <p><%= showMovie.runtime %></p>
+                <p><%= showMovie.synopsis %></p>
+                <img src="<%= showMovie.image %>">
+
+			<div class="row">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Date</th>
+                            <th>Cinema</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% showSchedules.forEach(function(schedule){ %>
+                        <tr>
+                            <td><%= showMovie.title %></td>
+                            <td><%- schedule.schedule.toLocaleString() %></td>
+                            <td><%= schedule.cinema %></td>
+                            <td>Php <%= schedule.price %>.00</td>
+                            <td><a href="/reservation/<%= showMovie._id %>/<%= schedule._id %>">Reserve</a></td>
+                        </tr>
+                        <% }); %>
+                        <column name="title"></column>
+                    </tbody>
+                </table>
+			<div>
+
+
+		</div>
+	</section>
+	<!-- About section end -->
+
+<%- include("partials/footer") %>

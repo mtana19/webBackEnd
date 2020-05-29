@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+/*!
+ * custom.css 
+ * Version - 1.0
+ */
+
+
+/*--------------------
+  Page top section v.2
+---------------------*/
+.page-top-section-2 {
+	height: 330px;
+	padding-top: 170px;
+}
+
+.page-top-section-2 h2 {
+	color: #fff;
+}
+
+
+
+/*--------------------
+  Favicon v.2
+---------------------*/
+.reservation-item {
+	text-align: center;
+	padding-bottom: 25px
+}
+
+.reservation-item i {
+	color: #eb2b63;
+	font-size: 50px;
+}
+
+.reservation-action {
+	color:#eb2b63;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+.reservation-delete {
+	color:#6c757d;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+
+
+/*--------------------
+  Reservation v.2
+---------------------*/
+.reservation-detail h3{
+	text-align: center;
+}
+
+
+/*--------------------
+  Seats v.2
+---------------------*/
+.details-body {
+	background: #eef6f9;
+	padding: 54px 68px 52px;
+	border-radius: 14px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.details-body h3{
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.details-body h4{
+	padding-top: 20px;
+}
+
+.details-body h5{
+	padding-top: 15px;
+}
+
+.details-body h4, h5{
+	padding-top: 15px;
+}
+
+.imgsize {
+  height: 30px;
+  width: 30px;
+}
+
+h6 {
+	font-size: 12px;
+}
+
+
+
+/*--------------------
+  Reservation, Seats & Checkout v.2
+---------------------*/
+.reserve-seats-btn {
+	width: 100%;
+	display: inline-block;
+	border: none;
+	font-size: 14px;
+	font-weight: 400;
+	min-width: 186px;
+	padding: 17px 25px;
+	border-radius: 14px;
+	background: #eb2b63;
+	color: #fff;
+	line-height: 1;
+	cursor: pointer;
+	text-align: center;
+}
+
+
+table {
+  table-layout:fixed;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.table td{
+    padding: .40rem;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+}
+
+ .table th{
+    padding: .30rem;
+  	
+  	text-overflow: ellipsis;
+ }
+
+.row-ID {
+  width: 5%;
+}
+.row-movie {
+  width: 20%;
+}
+.row-others {
+  width: 15%;
+}
+
+.highlight {
+	-webkit-box-shadow: inset 0 0 0 2px #eb2b63, 0px 32px 43px rgba(0, 0, 0, 0.35);
+	box-shadow: inset 0 0 0 2px #eb2b63, 0px 32px 43px rgba(0, 0, 0, 0.35);
+}
